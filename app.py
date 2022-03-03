@@ -1,14 +1,15 @@
-from loader import bot
+from loader import bot, dp
 from config import admins_id
+import handlers
+
 
 async def send_to_admin(*args):
-    await bot.send_message(chat_id=admins_id[0], text="Bot starts!")
-    
-async def on_shd(dp):
-    await bot.send_message(chat_id=admins_id[0], text="Bot closes!")
-    await bot.close()
+    for id in admins_id:
+        try:
+            await bot.send_message(chat_id = id, text = "Bot starts!")
+        except:
+            pass
 
 if __name__ == "__main__":
-    from aiogram import executor
-    from handlers import dp
-    executor.start_polling(dp, on_startup=send_to_admin, on_shutdown=on_shd, skip_updates=True)
+    from aiogram.utils.executor import start_polling
+    start_polling(dp, on_startup = send_to_admin, skip_updates = True)

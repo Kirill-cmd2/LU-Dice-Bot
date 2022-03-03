@@ -1,5 +1,6 @@
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
+
 playi=ReplyKeyboardMarkup(
     keyboard=[
         [
@@ -8,6 +9,7 @@ playi=ReplyKeyboardMarkup(
     ],
     resize_keyboard=True
 )
+
 
 yana_play=ReplyKeyboardMarkup(
     keyboard=[
