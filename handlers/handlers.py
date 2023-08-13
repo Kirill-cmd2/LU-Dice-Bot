@@ -3,7 +3,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.builtin import Text
 from aiogram.types import Message, ContentType
 from aiogram.types.reply_keyboard import ReplyKeyboardRemove
-from random import randint
+from random import choice
 from buttons import playi, yana_play
 from config import admins_id
 from loader import dp, bot
@@ -20,10 +20,9 @@ async def start_message(message: Message):
 @dp.message_handler(Text(equals="Qani, boshla o'yinni! 💪"))
 @dp.message_handler(Text(equals="Yana o'yin! 🤪"))
 async def play(message:Message, state:FSMContext):
-    dice = ['🎲','🎰','🎯','🏀','⚽']
-    rand = randint(0,4)
+    dice = ['🎲','🎰','🎯','🏀','⚽','🎳']
     
-    bot_data=await bot.send_dice(chat_id=message.from_user.id, emoji=dice[rand], reply_markup=ReplyKeyboardRemove())
+    bot_data=await bot.send_dice(chat_id=message.from_user.id, emoji=choice(dice), reply_markup=ReplyKeyboardRemove())
 
     async with state.proxy() as data:
         data['bot_dice_num']=bot_data['dice']['value']
