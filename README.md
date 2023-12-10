@@ -12,4 +12,4 @@ How to run the bot?
 5. Run app.py
 
 
-P.S. Procfile and runtime.txt files are for running bot on Heroku server properly and bot.conf file is for running bot on AWS using supervisorctl
+P.S. Procfile and runtime.txt files are for running bot on Heroku server properly and bot.conf file is for running bot on AWS using supervisorctl. Which means that if you run bot locally there is no need to use them
